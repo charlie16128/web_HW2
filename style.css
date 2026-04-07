@@ -1,0 +1,247 @@
+:root {
+    --bg-left: #0000006b;
+    --bg-right: #1f1f1f; 
+    --border-color: #363636;
+    --primary-blue: #005c98; /* 深色模式下的暗藍色 */
+    --text-main: #f5f5f5;
+    --text-muted: #a8a8a8;
+    --footer-bg: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-right);
+    overflow-x: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+/* --- 左側區塊：靠上、靠左對齊 --- */
+.left-panel {
+    flex: 1;
+    background-color: var(--bg-left);
+    display: flex;
+    justify-content: center; /* 讓整體 content 容器在左半邊居中 */
+    align-items: flex-start; 
+    border-right: 1px solid var(--border-color);
+    padding: 100px 20px 40px; 
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    /* 修正：將原本的 center 改為 flex-start，讓 logo 與文字靠左 */
+    align-items: flex-start; 
+    width: 100%;
+    max-width: 500px; /* 稍微縮小容器寬度以符合視覺比例 */
+}
+
+.ig-logo {
+    display: inline-block;
+    /* 修正：Logo 必須是正方形才不會被遮住 */
+    width: 80px; 
+    height: 80px;
+    /* 修正：對齊官方原始碼的背景設定 */
+    background-position: 0 0;
+    background-size: contain; /* 改為 contain 確保圖片完整縮放進容器 */
+    background-repeat: no-repeat;
+    margin-bottom: 25px; 
+}
+
+.main-heading {
+    font-size: 35px; 
+    font-weight: 600;
+    line-height: 64.8px; /* 依照官方原始碼行高 */
+    text-align: center; 
+    margin-bottom: 140px; 
+    margin-left: 100px;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.phones-img {
+    width: 100%;
+    max-width: 500px; 
+    height: auto;
+    /* 修正：圖片在靠左的結構下也需要維持水平居中或適當位移，這裡採自動置中於 content */
+    align-self: center; 
+}
+
+/* --- 右側區塊 --- */
+.right-panel {
+    flex: 1;
+    background-color: var(--bg-right);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px; 
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: left; 
+}
+
+.input-field {
+    margin-bottom: 12px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px 16px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 12px; 
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+}
+
+.input-field input:focus {
+    border-color: #a8a8a8;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 24px; 
+    padding: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin: 24px 0 36px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-secondary {
+    width: 100%;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 24px; 
+    padding: 14px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-third {
+    width: 100%;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 24px; 
+    padding: 14px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-color: #1877F2;
+}
+
+.fb-icon {
+    color: #1877F2; 
+}
+
+.meta-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px; 
+}
+
+/* --- 頁尾 --- */
+.footer {
+    background-color: var(--bg-left); 
+    border-top: 1px solid var(--border-color);
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #737373;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
+    color: #737373;
+    font-size: 12px;
+}
+
+.arrow {
+    font-size: 8px;
+    margin: 0 4px;
+}
+
+/* 響應式設計 */
+@media (max-width: 875px) {
+    .left-panel {
+        display: none;
+    }
+    .right-panel {
+        background-color: var(--bg-left); 
+    }
+}
